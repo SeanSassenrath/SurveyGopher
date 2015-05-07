@@ -1,3 +1,3 @@
-class UserSurvey < ActiveRecord::Base
+class TakersSurvey < ActiveRecord::Base
   # Remember to create a migration!
 end
