@@ -1,0 +1,9 @@
+
+    <h1 style="text-align:center">Welcome <%=@user.name%></h1>
+
+      <form class="logout_button" action="/sessions/:id" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out"/>
+      </form>
+
+
