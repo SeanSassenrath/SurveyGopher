@@ -46,7 +46,3 @@ post '/users' do
   erb :index
 end
 
-
-get '/user/:id/survey/:id/new' do
-
-end
