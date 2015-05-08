@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/user/:id' do
-  @survey = Survey.where(creator_id: params[:id])
+  @surveys = Survey.where(creator_id: params[:id])
 
   erb :'users/index'
 end

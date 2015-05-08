@@ -2,8 +2,8 @@
 <h1 style="text-align:center">Welcome <%=current_user.name%></h1>
 <h1>Surveys you created!</h1>
 <ul>
-  <% @survey.each do |surveys| %>
-  <li><a href=""><%=surveys.title %></a></li>
+  <% @surveys.each do |survey| %>
+  <%= erb :'survey', layout: false, locals: { survey: survey} %>
   <% end %>
 </ul>
 
