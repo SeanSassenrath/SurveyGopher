@@ -1,0 +1,21 @@
+
+<h1 style="text-align:center">Welcome <%=current_user.name%></h1>
+<h1>Surveys you created!</h1>
+<ul>
+  <% @survey.each do |surveys| %>
+  <li><a href=""><%=surveys.title %></a></li>
+  <% end %>
+</ul>
+
+<form class="logout_button" action="/user/:id" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Log Out"/>
+</form>
+
+<form class="create_survey" action="/surveys" method="post">
+  <input type="hidden" name="_method" value="create">
+  <input type="submit" value="Create Survey"/>
+</form>
+
+
+
