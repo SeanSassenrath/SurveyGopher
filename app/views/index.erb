@@ -1,7 +1,4 @@
-<%if current_user%>
-  <%= erb :home %>
-<%else%>
-  <h1 style="text-align:center">Welcome</h1>
+<h1 style="text-align:center">Welcome</h1>
 
   <form action="/login" method="get">
     <input type="submit" value="Login"/>
@@ -10,4 +7,3 @@
   <form action="/signup" method="get">
     <input type="submit" value="Sign Up"/>
   </form>
-<%end%>

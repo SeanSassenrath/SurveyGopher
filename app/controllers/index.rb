@@ -2,6 +2,12 @@ get '/' do
   erb :index
 end
 
+get '/user/:id' do
+  @survey = Survey.where(creator_id: params[:id])
+
+  erb :'users/index'
+end
+
 get '/login' do
   erb :login
 end
@@ -11,7 +17,7 @@ post '/login' do
   if user && user.password = params[:password]
     # status 200
     login(user)
-    redirect "/"
+    redirect "/user/#{current_user.id}"
   else
     status 406
     "Invalid Sign Up Combination"
