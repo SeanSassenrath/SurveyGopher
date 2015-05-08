@@ -15,6 +15,13 @@ require 'capybara/rspec'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.before do
+    Choice.delete_all
+    Question.delete_all
+    Survey.delete_all
+    Answer.delete_all
+    User.delete_all
+  end
 end
 
 def app
