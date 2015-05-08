@@ -1,23 +1,13 @@
-<div class="header-cont">
-  <div class="header">
-    <div class="banner">
-      <div class="rectangle">Survey Gopher</div>
-        <div class="gopher"><img src="http://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png"/></div>
-        </div>
-      </div>
-<div class="content">
-  <%if @id%>
+<%if current_user%>
   <%= erb :home %>
-  <%else%>
+<%else%>
   <h1 style="text-align:center">Welcome</h1>
 
-  <form action="/sessions/new" method="get">
+  <form action="/login" method="get">
     <input type="submit" value="Login"/>
   </form>
 
-  <form action="/users/new" method="get">
+  <form action="/signup" method="get">
     <input type="submit" value="Sign Up"/>
   </form>
-  <%end%>
-  </div>
-</div>
+<%end%>

@@ -1,18 +1,16 @@
 get '/' do
-  @id = session[:user_id]
-  @user = User.where(id: @id).first
   erb :index
 end
 
-get '/sessions/new' do
+get '/login' do
   erb :login
 end
 
-post '/sessions' do
-  @user = User.where(email: params[:email]).first
-  if @user.password = params[:password]
-    status 200
-    session[:user_id] = @user.id
+post '/login' do
+  user = User.where(email: params[:email]).first
+  if user && user.password = params[:password]
+    # status 200
+    login(user)
     redirect "/"
   else
     status 406
@@ -20,29 +18,28 @@ post '/sessions' do
   end
 end
 
-delete '/sessions/:id' do
-   session[:user_id] = nil
-  redirect '/'
-  erb :index
-end
-
-get '/users/new' do
+get '/signup' do
   erb :signup
 end
 
-post '/users' do
-    @user = User.new(
+post '/user' do
+  user = User.new(
     name: params[:name],
     email: params[:email],
     password: params[:password],
-    )
-  if @user.save
-      session[:user_id] = @user.id
+  )
+  if user.save
+    login(user)
     redirect "/"
   else
     status 406
-    "Invalid Sign Up Combination"
+    # "Invalid Sign Up Combination"
+    erb :signup
   end
-  erb :index
+end
+
+delete '/user/:id' do
+  logout!
+  redirect '/'
 end
 
