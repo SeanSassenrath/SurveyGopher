@@ -47,6 +47,30 @@ post '/users' do
 end
 
 
-get '/user/:id/survey/:id/new' do
+# get '/user/:id/survey/:id/new' do
+  #erb :survey
+# end
 
+#post '/user/:id/survey/:id/' do
+  #@survey = Survey.new(
+  #   title: params[:title],
+  #   question_content: params[:question_content],
+  #   selection: params[:selections],
+  #   )
+  # if @survey.save
+  #   redirect "/"
+  # else
+  #   status 406
+  #   "Invalid Sign Up Combination"
+  # end
+#end
+# get '/survey/all' do
+# @all_surveys = Survey.all
+
+# end
+
+get '/user/:id/survey/:id/display' do
+  @user = User.find(params[:id])
+  @survey = Survey.find(params[:survey_id])
+  erb :display
 end

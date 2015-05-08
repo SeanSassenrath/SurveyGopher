@@ -1,4 +1,9 @@
-
+.huge_gopher img{
+  position: absolute;
+  display: none;
+  left: -90%;
+  top: 15%;
+}
 .gopher img {
   position: absolute;
   height: 5%;
