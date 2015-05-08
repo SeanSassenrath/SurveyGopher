@@ -9,4 +9,16 @@ describe Answer do
     }.to raise_error(ActiveRecord::RecordNotUnique)
   end
 
+  it 'should have_one survey' do
+    survey = Survey.create!(creator: User.create!)
+    question = Question.create!(survey: survey)
+    choice = Choice.create!(question: question)
+    answer = Answer.create!(
+      user: User.create!,
+      question: question,
+      choice: choice,
+    )
+    expect(answer.survey).to eq survey
+  end
+
 end
