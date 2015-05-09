@@ -1,0 +1,6 @@
+<%= survey.title %>
+<ul>
+<% survey.questions.each do |question| %>
+<li><%= question.question_content %></li>
+<% end %>
+</ul>

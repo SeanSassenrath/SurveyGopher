@@ -1,37 +1,29 @@
-<div class="header-cont">
-  <div class="header">
-    <div class="banner">
-      <div class="rectangle">Survey Gopher</div>
-        <div class="gopher"><img src="http://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png"/></div>
-        </div>
-      </div>
-<div class="content">
-  <%if current_user%>
-    <h1 style="text-align:center">Create Survey</h1>
-    <div class="info"><h3>Info: Create your survey to ask your survey-takers based on a 1-4 rating scale.</h3></div>
-    <p>Ex: How was your day today? 1 ... 2 ... 3 ... 4 ... (4 being the BEST!)</p>
+<h1 style="text-align:center">Create Survey</h1>
+<div class="info"><h3>Info: Create your survey to ask your survey-takers based on a 1-4 rating scale.</h3></div>
+<p>Ex: How was your day today? 1 ... 2 ... 3 ... 4 ... (4 being the BEST!)</p>
 
+<form action="/surveys" method="post">
+<input type="text" name="title" placeholder="survey title"/>
+<input type="number" name="question_count" placeholder=""/>
+<input type="text" name="question_content" id="test" placeholder="Question_content"/>
+<input type="submit" value="submit survey">
+</form>
 
-    <div class="survey-area">
-      <ul id="question_list">
-      <form action="/surveys" method="POST">
-        <input type="text" placeholder="Survey Name">
-        <form>
-          <input type="text" name="question_header" placeholder="Question Header">
-          <textarea name="question_content" id="test" ></textarea>
-          <input type="submit" placeholder="Add Question">
-        </form>
-        <input type="submit" value="submit">
-      </form>
-      </ul>
-    </div>
-
-
-
-
-  <%else%>
-    <h1>Not your survey to make!</h1>
-    <%=redirect "/"%>
-  <%end%>
-  </div>
-</div>
+<!-- <div class="survey-area">
+  <ul id="question_list">
+  <form class="survey_area" action="/surveys" method="POST">
+    <input type="text" name="title" placeholder="Survey Title">
+    <input type="submit" value="submit">
+  </form>
+  <form>
+    <textarea name="question_content" id="test" placeholder="Question Content"></textarea>
+    <input type="radio" name="choices_content" class="choice_button" value="1">
+    <input type="radio" name="choices_content" class="choice_button" value="2">
+    <input type="radio" name="choices_content" class="choice_button" value="3">
+    <input type="radio" name="choices_content" class="choice_button" value="4">
+    <button class="btn">Add Question</button>
+    <input type="submit" value="">
+  </form>
+  </form>
+  </ul>
+</div> -->
