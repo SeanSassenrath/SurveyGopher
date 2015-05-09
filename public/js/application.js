@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('.btn').on('click', function(e) {
     e.preventDefault();
     var ajaxResponse = $.ajax({
@@ -14,7 +15,11 @@ $(document).ready(function() {
   });
 });
 
-var addQuestion = function(data) {
-  // data = JSON.parse(data)
-
-};
+$(document).ready(function() {
+  $(window).on('click', function(e) {
+    $('.huge_gopher img').show();
+    $('.huge_gopher img').animate( {left: '80%'}, 3000);
+    setTimeout(function(){ $('.huge_gopher img').hide() }, 3000);
+    setTimeout(function(){ $('.huge_gopher img').css('left', '-90%') }, 4000);
+  });
+});
